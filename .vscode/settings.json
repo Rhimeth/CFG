@@ -1,0 +1,9 @@
+{
+    "cmake.sourceDirectory": "/wsl.localhost/Ubuntu/home/dubem/cfg_parser",
+    "makefile.makefilePath": "",
+    "makefile.makePath": "\"\\\\wsl.localhost\\Ubuntu\\home\\dubem\\cfg_parser\\build\\Makefile\"",
+    "files.associations": {
+        ".fantomasignore": "ignore",
+        "iostream": "cpp"
+    }
+}

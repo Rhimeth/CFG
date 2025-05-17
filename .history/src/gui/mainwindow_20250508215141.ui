@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ui version="4.0">
+  <class>MainWindow</class>
+  <widget class="QMainWindow" name="MainWindow">
+    <property name="geometry">
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>800</width>
+        <height>600</height>
+      </rect>
+    </property>
+    <property name="windowTitle">
+      <string>CFG Parser</string>
+    </property>
+    <widget class="QWidget" name="centralwidget">
+      <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+              <widget class="QLabel" name="label">
+                <property name="text">
+                  <string>File:</string>
+                </property>
+              </widget>
+            </item>
+            <item>
+              <widget class="QLineEdit" name="filePathEdit"/>
+            </item>
+            <item>
+              <widget class="QPushButton" name="browseButton">
+                <property name="text">
+                  <string>Browse...</string>
+                </property>
+              </widget>
+            </item>
+            <item>
+              <widget class="QPushButton" name="analyzeButton">
+                <property name="text">
+                  <string>Analyze</string>
+                </property>
+              </widget>
+            </item>
+          </layout>
+        </item>
+        <item>
+          <widget class="QGroupBox" name="multiFileGroup">
+            <property name="title">
+              <string>Multiple Files</string>
+            </property>
+            <property name="checkable">
+              <bool>true</bool>
+            </property>
+            <property name="checked">
+              <bool>false</bool>
+            </property>
+            <layout class="QVBoxLayout" name="multiFileLayout">
+              <item>
+                <layout class="QHBoxLayout" name="fileButtonsLayout">
+                  <item>
+                    <widget class="QPushButton" name="addFileButton">
+                      <property name="text">
+                        <string>Add File</string>
+                      </property>
+                    </widget>
+                  </item>
+                  <item>
+                    <widget class="QPushButton" name="removeFileButton">
+                      <property name="text">
+                        <string>Remove Selected</string>
+                      </property>
+                    </widget>
+                  </item>
+                  <item>
+                    <widget class="QPushButton" name="clearFilesButton">
+                      <property name="text">
+                        <string>Clear All</string>
+                      </property>
+                    </widget>
+                  </item>
+                  <item>
+                    <spacer name="horizontalSpacer">
+                      <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                        <size>
+                          <width>40</width>
+                          <height>20</height>
+                        </size>
+                      </property>
+                    </spacer>
+                  </item>
+                </layout>
+              </item>
+              <item>
+                <widget class="QListWidget" name="fileListWidget">
+                  <property name="selectionMode">
+                    <enum>QAbstractItemView::ExtendedSelection</enum>
+                  </property>
+                </widget>
+              </item>
+            </layout>
+          </widget>
+        </item>
+        <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+              <widget class="QLabel" name="label_2">
+                <property name="text">
+                  <string>Search:</string>
+                </property>
+              </widget>
+            </item>
+            <item>
+              <widget class="QLineEdit" name="search"/>
+            </item>
+            <item>
+              <widget class="QPushButton" name="searchButton">
+                <property name="text">
+                  <string>Search</string>
+                </property>
+              </widget>
+            </item>
+            <item>
+              <widget class="QPushButton" name="toggleFunctionGraph">
+                <property name="text">
+                  <string>Toggle View</string>
+                </property>
+              </widget>
+            </item>
+          </layout>
+        </item>
+        <item>
+          <widget class="QSplitter" name="mainSplitter">
+            <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>1</verstretch>
+              </sizepolicy>
+            </property>
+            
+            <!-- Left: Code Editor -->
+            <widget class="QTextEdit" name="codeEditor">
+              <property name="readOnly">
+                <bool>false</bool>
+              </property>
+            </widget>
+            
+            <!-- Middle: Graph View with ScrollArea -->
+            <widget class="QScrollArea" name="graphScrollArea">
+              <property name="widgetResizable">
+                <bool>true</bool>
+              </property>
+              <widget class="QWidget" name="scrollAreaWidgetContents">
+                <layout class="QVBoxLayout" name="scrollAreaLayout">
+                  <item>
+                    <widget class="QWebEngineView" name="webView"/>
+                  </item>
+                </layout>
+              </widget>
+            </widget>
+            
+            <!-- Right: Report Panel -->
+            <widget class="QTextEdit" name="reportTextEdit">
+              <property name="readOnly">
+                <bool>true</bool>
+              </property>
+            </widget>
+          </widget>
+        </item>
+      </layout>
+    </widget>
+    <widget class="QMenuBar" name="menubar">
+      <property name="geometry">
+        <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>800</width>
+          <height>22</height>
+        </rect>
+      </property>
+      <widget class="QMenu" name="menuFile">
+        <property name="title">
+          <string>File</string>
+        </property>
+        <addaction name="actionOpen"/>
+        <addaction name="actionExit"/>
+      </widget>
+      <widget class="QMenu" name="menuHelp">
+        <property name="title">
+          <string>Help</string>
+        </property>
+        <addaction name="actionAbout"/>
+      </widget>
+      <addaction name="menuFile"/>
+      <addaction name="menuHelp"/>
+    </widget>
+    <widget class="QStatusBar" name="statusbar"/>
+    <action name="actionOpen">
+      <property name="text">
+        <string>Open</string>
+      </property>
+    </action>
+    <action name="actionExit">
+      <property name="text">
+        <string>Exit</string>
+      </property>
+    </action>
+    <action name="actionAbout">
+      <property name="text">
+        <string>About</string>
+      </property>
+    </action>
+  </widget>
+  <resources/>
+  <connections/>
+</ui>

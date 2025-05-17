@@ -1,0 +1,6 @@
+digraph CFG {
+  node [shape=box];
+  0 [label="Block 0"];
+  1 [label="Block 1"];
+  1 -> 0;
+}
